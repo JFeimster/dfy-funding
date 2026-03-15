@@ -19,7 +19,7 @@ export default function StartSuccessPage() {
           <div className="mt-10 flex flex-wrap gap-4">
             <Link
               href={bookingUrl}
-              className="rounded-full bg-black px-6 py-3.5 text-sm font-medium text-white transition hover:bg-black/90"
+              className="rounded-full bg-black px-6 py-3.5 text-sm font-medium !text-white transition hover:bg-black/90"
             >
               {siteConfig.secondaryCta.label}
             </Link>

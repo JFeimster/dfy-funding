@@ -177,7 +177,7 @@ export function StartIntakeForm() {
 
       <button
         type="submit"
-        className="rounded-full bg-black px-6 py-3.5 text-sm font-medium text-white transition hover:bg-black/90"
+        className="rounded-full bg-black px-6 py-3.5 text-sm font-medium !text-white transition hover:bg-black/90"
       >
         Submit Funding Plan Request
       </button>

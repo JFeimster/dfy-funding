@@ -26,7 +26,7 @@ export function SiteHeader() {
 
         <Link
           href={siteConfig.primaryCta.href}
-          className="shrink-0 rounded-full bg-black px-5 py-2.5 text-sm font-medium text-white transition hover:bg-black/90"
+          className="shrink-0 rounded-full bg-black px-5 py-2.5 text-sm font-medium !text-white transition hover:bg-black/90"
         >
           {siteConfig.primaryCta.label}
         </Link>
