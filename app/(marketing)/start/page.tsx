@@ -17,9 +17,16 @@ export default function StartPage() {
         title="Start your funding plan."
         description="Tell us what you need, where the business stands, and what is blocking progress. This is the fastest way to route you toward the right capital and support path."
       />
-      <section className="pb-20">
+      <section className="pb-24">
         <Container className="max-w-4xl">
-          <div className="rounded-3xl border border-black/10 p-6 md:p-8">
+          <div className="mb-8 flex flex-wrap items-center gap-x-6 gap-y-2 border-y border-black/[0.08] py-4 text-sm text-black/60">
+            <span>No commitment</span>
+            <span className="text-black/30" aria-hidden>·</span>
+            <span>Reviewed within 1–2 business days</span>
+            <span className="text-black/30" aria-hidden>·</span>
+            <span>Next step: strategy call</span>
+          </div>
+          <div className="rounded-3xl border border-black/[0.08] bg-white p-6 shadow-sm md:p-8 ring-1 ring-black/[0.04]">
             <StartIntakeForm />
           </div>
         </Container>

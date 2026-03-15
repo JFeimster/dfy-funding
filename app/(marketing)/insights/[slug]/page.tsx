@@ -17,15 +17,23 @@ export default async function InsightDetailPage({
   if (!post) notFound();
 
   return (
-    <section className="py-20 md:py-28">
-      <Container className="max-w-3xl">
-        <p className="text-sm uppercase tracking-[0.18em] text-black/45">Insights</p>
-        <h1 className="mt-4 text-4xl font-semibold tracking-tight md:text-5xl">{post.title}</h1>
-        <p className="mt-4 text-sm text-black/45">{post.date}</p>
-        <article className="prose prose-neutral mt-10 max-w-none whitespace-pre-wrap text-black/80">
-          {post.content}
-        </article>
+    <article className="py-24 md:py-32">
+      <Container className="max-w-2xl">
+        <header>
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-black/50">Insights</p>
+          <h1 className="mt-4 text-4xl font-semibold tracking-tight text-black md:text-5xl">
+            {post.title}
+          </h1>
+          <time className="mt-4 block text-sm text-black/50" dateTime={post.date}>
+            {post.date}
+          </time>
+        </header>
+        <div className="mt-12 border-t border-black/[0.08] pt-10">
+          <div className="prose prose-neutral max-w-none text-black/85 leading-relaxed [&_p]:mb-5 [&_ul]:my-5 [&_li]:my-1 whitespace-pre-wrap">
+            {post.content}
+          </div>
+        </div>
       </Container>
-    </section>
+    </article>
   );
 }

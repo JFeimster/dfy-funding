@@ -14,8 +14,8 @@ export default function ProofPage() {
     <>
       <PageHero
         eyebrow="Proof"
-        title="Proof that the model is bigger than one funding event."
-        description="Use real case studies here when available. In v1, keep claims grounded and the framing honest."
+        title="Outcomes that go beyond one funding event."
+        description="Readiness, execution, and systems that hold—so the next cycle is easier. We keep the framing grounded and the claims honest."
         primaryCta={{ label: "Start Your Funding Plan", href: "/start" }}
       />
       <ProofPreview />

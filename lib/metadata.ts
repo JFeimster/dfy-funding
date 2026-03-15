@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { siteConfig } from "@/content/site";
+import { getSiteConfig } from "@/content/site";
 
 export function buildMetadata({
   title,
@@ -10,6 +10,7 @@ export function buildMetadata({
   description: string;
   path: string;
 }): Metadata {
+  const siteConfig = getSiteConfig();
   const url = `${siteConfig.domain}${path}`;
 
   return {

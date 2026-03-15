@@ -1,7 +1,9 @@
 import type { MetadataRoute } from "next";
+import { getSiteConfig } from "@/content/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://dfyfunding.com";
+  const siteConfig = getSiteConfig();
+  const base = siteConfig.domain;
   const routes = [
     "",
     "/how-it-works",
