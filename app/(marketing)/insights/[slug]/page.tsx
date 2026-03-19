@@ -170,15 +170,19 @@ export default async function InsightDetailPage({
   const { slug } = await params;
   const post = getInsightBySlug(slug);
 
-  if (!post) notFound();
+  if (!post) {
+    notFound();
+  }
 
-  const relatedPosts = getRelatedInsights(post.slug, {
-    category: post.category,
-    tags: post.tags,
+  const safePost = post as NonNullable<typeof post>;
+
+  const relatedPosts = getRelatedInsights(safePost.slug, {
+    category: safePost.category,
+    tags: safePost.tags,
     limit: 3,
   });
 
-  const inlineCta = getInlineCta(post);
+  const inlineCta = getInlineCta(safePost);
 
   return (
     <article className="py-24 md:py-32">
@@ -186,9 +190,9 @@ export default async function InsightDetailPage({
         <header className="border-b border-black/[0.08] pb-10">
           <div className="flex flex-wrap items-center gap-3">
             <span className="rounded-full border border-black/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-black/55">
-              {post.category}
+              {safePost.category}
             </span>
-            {post.featured ? (
+            {safePost.featured ? (
               <span className="rounded-full bg-black px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-white">
                 Featured
               </span>
@@ -196,22 +200,22 @@ export default async function InsightDetailPage({
           </div>
 
           <h1 className="mt-5 text-4xl font-semibold tracking-tight text-black md:text-5xl">
-            {post.title}
+            {safePost.title}
           </h1>
 
           <p className="mt-5 text-lg leading-8 text-black/70">
-            {post.excerpt}
+            {safePost.excerpt}
           </p>
 
           <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-black/50">
-            <span>{post.author}</span>
+            <span>{safePost.author}</span>
             <span>•</span>
-            <time dateTime={post.date}>{formatPublishDate(post.date)}</time>
+            <time dateTime={safePost.date}>{formatPublishDate(safePost.date)}</time>
           </div>
 
-          {post.tags.length > 0 ? (
+          {safePost.tags.length > 0 ? (
             <div className="mt-5 flex flex-wrap gap-2">
-              {post.tags.map((tag) => (
+              {safePost.tags.map((tag) => (
                 <span
                   key={tag}
                   className="rounded-full border border-black/10 px-3 py-1 text-xs text-black/60"
@@ -222,11 +226,11 @@ export default async function InsightDetailPage({
             </div>
           ) : null}
 
-          {post.coverImage ? (
+          {safePost.coverImage ? (
             <div className="mt-8 overflow-hidden rounded-3xl border border-black/10 bg-black/[0.02]">
               <img
-                src={post.coverImage}
-                alt={post.title}
+                src={safePost.coverImage}
+                alt={safePost.title}
                 className="h-auto w-full object-cover"
               />
             </div>
@@ -235,7 +239,7 @@ export default async function InsightDetailPage({
 
         <div className="mt-12">
           <div className="prose prose-neutral max-w-none text-black/85">
-            {renderBody(post.body)}
+            {renderBody(safePost.body)}
           </div>
         </div>
 
