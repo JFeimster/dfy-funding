@@ -7,7 +7,7 @@ const insightsDir = path.join(process.cwd(), "content/insights");
 
 const insightSchema = z.object({
   title: z.string().min(5),
-  slug: z.string().min(3).optional(),
+  slug: z.string().min(3),
   excerpt: z.string().min(20),
   date: z.string().min(4),
   author: z.string().default("DFY Funding"),
